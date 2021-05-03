@@ -1,5 +1,6 @@
-import sys
 import pygame
+
+import game_functions as functions
 
 from settings import Settings
 from objects import Spacecraft
@@ -15,13 +16,7 @@ def run():
     spacecraft = Spacecraft(screen)
 
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-
-        screen.fill(settings.bg_color)
-        spacecraft.blitme()
-
-        pygame.display.flip()
+        functions.check_events()
+        functions.update_screen(settings, screen, spacecraft)
 
 run()
