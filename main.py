@@ -13,10 +13,11 @@ def run():
     screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
-    spacecraft = Spacecraft(screen)
+    spacecraft = Spacecraft(settings, screen)
 
     while True:
-        functions.check_events()
+        functions.check_events(spacecraft)
+        spacecraft.update()
         functions.update_screen(settings, screen, spacecraft)
 
 run()
